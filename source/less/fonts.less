@@ -1,0 +1,15 @@
+﻿.make-font(@family, @file, @weight: normal, @style: normal) {
+    @font-face {
+        font-family: @family;
+        src: url('../fonts/@{file}.eot');
+        src: url('../fonts/@{file}.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/@{file}.woff') format('woff'),
+        url('../fonts/@{file}.ttf') format('truetype'),
+        url('../fonts/@{file}.svg#@{family}') format('svg');
+        font-weight: @weight;
+        font-style: @style;
+    }
+}
+
+//.make-font('Ubuntu', 'ubuntu-medium', normal, normal);
+//.make-font('Ubuntu', 'ubuntu-medium', 500, normal);

@@ -1,0 +1,933 @@
+﻿.article() {
+    font-size: @font-size-medium;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        margin-bottom: 24px;
+    }
+
+    h2,
+    h3,
+    h4 {
+        margin-top: 42px;
+    }
+
+    h2 + h3,
+    h3 + h4,
+    h4 + h5 {
+        margin-top: 16px;
+    }
+
+    h3 {
+        margin-bottom: 18px;
+    }
+
+    p {
+        margin-bottom: @paragraph-margin;
+    }
+
+    a { .link(); }
+
+    .btn {
+        .transition(all 0s ease 0s);
+    }
+
+    .btn-success,
+    .btn-success:focus,
+    .btn-success:hover,
+    .btn-primary:hover,
+    .btn-primary:focus {
+        color: #fff;
+    }
+
+    .btn-link,
+    .btn-primary {
+        border-bottom-width: 0;
+    }
+
+    .btn-success {
+        border-bottom: 2px solid #F8363D;
+    }
+
+    .btn-lg {
+        margin-top: 6px;
+    }
+
+    .compare-btn {
+        border-bottom: 0;
+    }
+
+    .pseudo-title {
+        margin-top: 0;
+    }
+
+    ul {
+        padding-left: 14px;
+        list-style:none; 
+        margin-bottom: 24px;
+        
+        >li { 
+            list-style:none; 
+            padding-left: 33px;
+            position: relative;
+
+            + li {
+                margin-top: 8px;
+            }
+
+            &:before {
+                content: "\2014";
+                display: block;
+                position: absolute;
+                color: @brand-success;
+                left: 0;
+                top: 0;
+                font-weight: normal;
+            }
+        }
+    }
+
+    // стилизиуем цифры у нумерованного списка
+    ol {
+        list-style: none; 
+        counter-reset: point; 
+        padding-left: 8px;
+        margin: 32px 0;
+
+        >li {
+            position: relative;
+            padding-left: 40px;
+            margin: 0;
+
+            + li {
+                margin-top: 32px;
+            }
+
+            &:before {
+                counter-increment: point;       
+                content: counter(point, decimal-leading-zero);
+                position: absolute;
+                right: 100%;
+                top: -4px;
+                margin-right: -31px;
+                color: @brand-success;
+                font-weight: normal;
+                border: 2px solid @brand-success;
+                min-width: 32px;
+                height: 32px;
+                padding: 0 1px 0 2px;
+                border-radius: 32px;
+                font-size: @font-size-medium;
+                line-height: 30px;
+                text-align: center;
+                font-family: @font-family-alt;
+                color: @brand-success;
+            }
+        }
+
+        h3, .h3 {
+            margin-bottom: 15px;
+        }
+
+        &.sup-list {
+            padding-left: 6px;
+
+            >li{ 
+                padding-left: 20px;
+
+                &:before {
+                    content: counter(point);
+                    top: 0;
+                    line-height: normal;
+                    border: 0;
+                    width: auto;
+                    height: auto;
+                    font-family: @font-family-base;
+                    font-size: 65%;
+                    font-weight: bold;
+                }
+            }
+        }
+
+    }
+
+    // для возможности начать нумерованный список с произвольного числа
+    // реализуем до 200, цифры больше маловероятны, будем экономить килобайты
+    .loop(@i) when (@i >= 2) {
+        ol[start="@{i}"] { counter-reset: point @i - 1;  }
+        .loop((@i - 1));    
+    }
+    .loop(200);
+
+    ol, ul {
+        ul {
+            margin: 6px 0;
+        }
+    }
+
+    .silent {
+        ul>li:before {
+            color: #999;
+        }
+    }
+
+    sup {
+        color: @brand-success;
+        top: -0.5em;
+        font-size: 65%;
+        font-weight: bold;
+        margin-left: 2px;
+    }
+
+    .image-block {
+        img {
+            .img-responsive;
+            margin: 12px auto;
+        }
+        &.picture-left {
+            img  {
+                max-width: none;
+                float: right;
+                margin: 0;
+            }
+            @media ( max-width: @screen-sm-max ) {
+                display: none;
+            }
+        }
+
+        &.picture-right {
+            img  {
+                max-width: none;
+                float: left;
+                margin: 0;
+            }
+            @media ( max-width: @screen-sm-max ) {
+                display: none;
+            }
+        }
+    }
+
+    img {
+        .img-responsive;
+    }
+
+    img {
+        @media ( max-width: @screen-sm-max ) {
+            &[style*="left"],
+            &[style*="right"] { 
+                float: none!important;
+                margin-bottom: 20px;
+                margin-right: 0;
+                margin-left: 0;
+            }
+        }
+
+        @media ( min-width: @screen-md-min ) {
+            &[style*="left"] { 
+                margin-right: 16px;
+            }
+            &[style*="right"] { 
+                margin-left: 16px;
+            }
+        }
+    }
+
+    a[ target="_blank" ] {
+        .target-blank-link;
+    }
+
+    .teaser-table { 
+        margin-bottom: 20px;
+    }
+
+    // ** Сетка для статей
+    .row + .row {
+        margin-top: 48px;
+    }
+    .col { .make-xs-column(12); }
+    .col-12 { .make-xs-column(12); }
+    .col-11 { .make-md-column(11); }
+    .col-10 { .make-md-column(10); }
+    .col-9  { .make-md-column(9); }
+    .col-8  { .make-md-column(8); }
+    .col-7  { .make-md-column(7); }
+    .col-6  { .make-md-column(6); }
+    .col-5  { .make-md-column(5); }
+    .col-4  { .make-md-column(4); }
+    .col-3  { .make-md-column(3); }
+    .col-2  { .make-md-column(2); }
+    .col-1  { .make-md-column(1); }
+
+    .row + p { 
+        margin-top: @paragraph-margin;
+    }
+}
+
+.article {
+    .article();
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    .small { 
+        font-family: @font-family-base;
+        font-size: @font-size-base;
+        color: @gray-light;
+        margin-top: 10px;
+    }
+}
+
+.target-blank-link {
+    .nv-target-blank();
+    margin-left: 20px;
+    position: relative;
+
+    &:before {
+        .font-icon();
+        position: absolute;
+        margin-top: 4px;
+        margin-left: -20px;
+    }
+}
+
+
+// статья  с белым текстом на темном фоне
+.article-inverted {
+    color: #fff;
+
+    h1, h2, h3, h4, h5,
+    .h1, .h2, .h3, .h4, .h5 { 
+        color: #fff;
+    }
+
+    a {
+        .link(#fff);
+    }
+
+}
+
+// для статей, в которых скорее всего будет один абзац - убираем нижний отступ для этого абзаца
+.inner-article,
+.clickzone {
+    p { 
+        margin-bottom: 0;
+
+        & + p {
+            margin-top: @paragraph-margin;
+        }
+
+    }
+}
+
+hr {
+    margin: 48px 0;
+    background: #e3e3e3;
+    height: 4px;
+    border-radius: 4px;
+    border: 0;
+}
+
+.table {
+    >thead,
+    >tbody,
+    >tfoot {
+        >tr {
+            >td, th {
+                padding-left: 8px;
+                padding-right: 8px;
+
+                @media ( min-width: @grid-float-breakpoint ) {
+                    padding-left: 16px;
+                    padding-right: 16px;
+                }
+            }
+        }
+    }
+
+    >thead,
+    >tbody {
+        >tr{
+            border: 1px solid #e7e7e7;
+
+            >td, >th {
+                border: 1px solid #e7e7e7;
+            }
+        }
+    }
+
+    >thead {
+        border-top: 2px solid @brand-success;
+        border-bottom: 2px solid @brand-success;
+        background: #efefef;
+
+        >tr>th {
+            font-weight: normal;
+        }
+    }
+
+    &.table-condensed {
+        >thead,
+        >tbody,
+        >tfoot {
+            >tr {
+                >td, th {
+                    padding: 6px 8px;
+                }
+            }
+        }
+    }
+
+    tr>td {
+        h1, h2, h3 {
+            &:only-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    p { 
+        margin-bottom: 0;
+
+        & + p {
+            margin-top: 10px;
+        }
+    }
+}
+
+.article table {
+    .table;
+}
+
+.silent {
+    color: #999;
+}
+
+.buttons {
+    margin-top: -12px;
+
+    .btn {
+        margin-top:   12px;
+        margin-right: 12px;
+        margin-left: 0;
+        white-space: normal;
+    }
+
+    @media ( min-width: @screen-sm-min ) {
+        margin-top: -20px;
+
+        .btn {
+            margin-top: 20px;
+            margin-right: 20px;
+            margin-left: 0;
+
+        }
+    }
+}
+
+// ** Споилер
+
+.spoiler {
+    background: #fff;
+    margin-bottom: @font-size-medium * @line-height-base;
+
+    & + .spoiler {
+        margin-top: -@font-size-medium * @line-height-base;
+
+        .spoiler-header,
+        .spoiler-body {
+            border-top: 0;
+        }
+    }
+
+    .spoiler-header,
+    .spoiler-body {
+        padding: 15px;
+        border: 1px solid #e7e7e7;
+    }
+
+    .spoiler-header {
+        padding-left: 68px;
+        position: relative;
+        font-size: @font-size-medium;
+        font-family: @font-family-alt;
+        display: block;
+        cursor: pointer;
+
+        &,
+        &:hover,
+        &:focus {
+            color: @headings-color;
+            text-decoration: none;
+        }
+
+    }
+
+    .spoiler-body {
+        border-top: 0;
+    }
+
+    a {
+        .transition(all 0s ease 0s);
+    }
+
+}
+
+.spoiler-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    background: #efefef;
+    border-right: 1px solid #e7e7e7;
+
+    >.plus {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -9px 0 0 -8px;
+        width: 17px;
+        height: 17px;
+
+        &:before,
+        &:after {
+            content: "";
+            display: block;
+            background: #d9d9d9;
+            border-radius: 5px;
+        }
+
+        &:before {
+            width: 5px;
+            position: absolute;
+            left: 6px;
+            top: 0;
+            bottom: 0;
+            .transition(~"height .3s ease-out, top .3s ease-out, bottom .3s ease-out");
+        }
+
+        &:after {
+            width: 17px;
+            height: 5px;
+            margin-top: 6px;
+            position: absolute;
+            top: 0;
+        }
+
+    }
+
+}
+
+.expanded>.spoiler-icon>.plus:before {
+    top: 6px;
+    bottom: 6px;
+}
+
+.collapsed {
+    .spoiler-header& {
+        background: none;
+    }
+    .spoiler-icon { 
+        background: #efefef;
+
+        >.plus {
+            &:before {
+                top: 0;
+                bottom: 0;
+            }
+        }
+    }
+}
+
+.spoiler-header:hover {
+    background: #efefef;
+
+    .spoiler-icon {
+        background: @brand-success;
+    }
+
+    .plus:before,
+    .plus:after {
+        background: #fff;
+    }
+}
+
+// ** Файлы
+
+.files-list {
+    margin: 0;
+    padding-left: 0;
+
+    & + .files-list {
+    }
+
+    & + p {
+        margin-top: 48px;
+    }
+
+
+}
+
+.file-item {
+    padding-left: 50px;
+    position: relative;
+    text-align: left;
+    min-height: 40px;
+    margin: 0 0 24px;
+
+    .file-type {
+        .svg('icon-file', 33, 46);
+        position: absolute;
+        top: -2px;
+        left: 3px;
+
+        >span {
+            display: block;
+            color: #fff;
+            border-radius: 5px;
+            font-size: @font-size-small;
+            text-align: center;
+            position: absolute;
+            top: 20px;
+            left: -3px;
+            right: -3px;
+        }
+    }
+
+    .file-info {
+        display: block;
+        color: #999;
+        font-size: @font-size-small;
+        margin-top: 4px;
+    }
+    
+    a {
+        .link();
+        font-size: @font-size-medium;
+    }
+
+    a[target="_blank"] {
+        margin-left: 0;
+
+        &:before {
+            display: none;
+        }
+    }
+
+    &:focus,
+    &:hover {
+        a { 
+            border-bottom-color: transparent;
+            color: @brand-success;
+        }
+    }
+
+    h1, h2, h3 + & {
+        margin-top: 24px;
+    }
+
+    .divider { 
+        display: none; 
+    }
+
+    .file-sha {
+        margin-left: -48px;
+        margin-top: 6px;
+        display: block;
+    }
+
+    @media ( min-width: @screen-md-min ) {
+        .divider { 
+            display: inline;
+        }
+
+        .file-info { 
+            white-space: nowrap;
+        }
+
+        .file-sha {
+            margin: 0;
+            display: inline;
+        }
+    }
+
+}
+
+.no-touch .file-item {
+    .file-sha {
+        .opacity(0);
+        .transition(opacity .2s ease-in);
+    }
+
+    &:focus,
+    &:hover {
+        .file-sha {
+            .opacity(1);
+        }
+    }
+
+}
+
+.no-touch .tooltip {
+    .file-sha {
+        .opacity(1);
+    }
+}
+
+.file-primary {
+    .file-type>span {
+        background: @brand-primary;
+    }
+}
+
+.file-success {
+    .file-type>span {
+        background: @brand-success;
+    }
+}
+
+.file-info {
+    .file-type>span {
+        background: @brand-info;
+    }
+}
+
+.file-warning {
+    .file-type>span {
+        background: @brand-warning;
+    }
+}
+
+.file-danger {
+    .file-type>span {
+        background: @brand-danger;
+    }
+}
+
+// ** Тизеры
+
+.teaser {
+    .clearfix;
+    margin-top: 30px;
+    text-align: left;
+    max-width: 400px;
+
+    & + .teaser {
+        margin-bottom: 20px;
+    }
+
+    .image {
+        float: left;
+        margin-top: 0;
+        width: 55px;
+        height: 50px;
+
+        img {
+            display: inline;
+            vertical-align: middle;
+        }
+
+        &:before {
+            content: "";
+            height: 50px;
+            width: 1px;
+            vertical-align: middle;
+            display: inline-block;
+        }
+    }
+
+    .inner-article {
+        margin-left: 64px;
+    }
+
+    h4 {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    @media ( min-width: @teaser-float-breakpoint ) {
+        max-width: none;
+    }
+
+}
+
+// Горизонтальные тизеры:
+// в строчку, справа картинка
+.teaser-horizontal {
+}
+
+// Вертикальные  тизеры:
+// в столбик, картинка сверху
+.teaser-vertical {
+    @media ( min-width: @teaser-float-breakpoint ) {
+        text-align: center;
+
+        .inner-article {
+            margin-left: 0;
+        }
+
+        .image {
+            width: auto;
+            float: none;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+    }
+}
+
+// Таблица для тизеров
+.teaser-table {
+    width: 100%;
+    table-layout: fixed;
+
+    tbody,
+    thead,
+    tr,
+    td {
+        display: block;
+    }
+
+    >tbody>tr {
+        .article & {
+            border: 0!important;
+        }
+    }
+
+    >tbody>tr>td {
+        .article & {
+            padding: 0;
+            line-height: 0;
+            border: 0!important;
+        }
+    }
+
+    td {
+        text-align: center;
+        vertical-align: top;
+    }
+
+    .teaser-vertical,
+    .teaser-horizontal {
+        line-height: @line-height-base;
+    }
+
+    .teaser-vertical,
+    .teaser-vertical .inner-article {
+        text-align: left;
+    }
+
+    .teaser-horizontal {
+        padding-right: @grid-pad*2;
+    }
+
+    @media ( min-width: @teaser-float-breakpoint ) {
+        tbody,
+        thead {
+            display: table-row-group;
+        }
+
+        tr {
+            display: table-row;
+        }
+
+        td {
+            display: table-cell;
+        }
+
+        .teaser-vertical {
+            max-width: 260px;
+            display: inline-block;
+            float: none;
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-bottom: 0;
+        }
+
+        .teaser-vertical,
+        .teaser-vertical .inner-article {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+.teaser-imagical-block {
+    .clearfix;
+}
+
+.teaser-imagical {
+    .make-xs-column(12);
+    .make-md-column(6);
+    padding: 20px 25px;
+    height: 275px;
+    font-family: @font-family-alt;
+    .background-size(auto 100%);
+    background-position: top center;
+    position: relative;
+    overflow: hidden;
+
+    >.bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: 100%;
+        .scale(1);
+        .transition(transform .25s ease-out);
+
+    }
+
+    &:hover>.bg {
+        .scale(1.1);
+    }
+
+    >.inner-article {
+        position: relative;
+    }
+
+    &,
+    p,
+    h3 {
+        color: #fff;
+    }
+
+    h3 {
+        margin-bottom: 12px;
+        max-width: 240px;
+    }
+
+    .article & {
+        color: #fff;
+        border: 0;
+    }
+}
+
+//   .teaser-vertical-block {
+//       .make-row();
+//
+//       & + .teaser-vertical-block {
+//           margin-top: 20px;
+//       }
+//   }
+//
+//   .teaser-horizontal-block {
+//       .make-row();
+//
+//       & + .teaser-horizontal-block {
+//           margin-top: 20px;
+//       }
+//
+//       .teaser-horizontal {
+//           float: left;
+//           width: 50%;
+//           max-width: none;
+//       }
+//   }

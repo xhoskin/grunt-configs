@@ -1,0 +1,32 @@
+﻿doctype html
+//[if lt IE 7]><html class="no-js ie6 oldie" lang="ru"> <![endif]
+//[if IE 7]><html class="no-js ie7 oldie" lang="ru"> <![endif]
+//[if IE 8]><html class="no-js ie8 oldie" lang="ru"> <![endif]
+//[if IE 9]><html class="no-js ie9" lang="ru"> <![endif]
+//[if gt IE 8]><!
+html(class="no-js", lang="en")
+    //<![endif]
+    head
+        block includes
+        include meta
+        link(rel="stylesheet" href="#{css}libs.css")
+        link(rel="stylesheet" href="#{css}style.css")
+        <!--[if lt IE 9]>
+        script(src="#{js}lib/html5.js")
+        script(src="#{js}lib/respond.min.js")
+        <![endif]-->
+        script(src="#{js}lib/jquery-1.10.2.min.js")
+
+        title
+            Верстка
+
+    block vars
+
+    body(class='#{bodyClass}')
+        
+        .site-content
+            block content
+
+        block footer
+
+        script(src="#{js}currency-screen.js")

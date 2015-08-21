@@ -1,0 +1,62 @@
+﻿doctype html
+//[if lt IE 7]><html class="no-js ie6 oldie" lang="ru"> <![endif]
+//[if IE 7]><html class="no-js ie7 oldie" lang="ru"> <![endif]
+//[if IE 8]><html class="no-js ie8 oldie" lang="ru"> <![endif]
+//[if IE 9]><html class="no-js ie9" lang="ru"> <![endif]
+//[if gt IE 8]><!
+html(class="no-js", lang="en")
+    //<![endif]
+    head
+        block includes
+        include meta
+        link(rel="stylesheet" href="#{css}bootstrap.css")
+        link(rel="stylesheet" href="#{css}libs.css")
+        link(rel="stylesheet" href="#{css}style.css")
+        <!--[if lt IE 9]>
+        script(src="#{js}lib/html5.js")
+        script(src="#{js}lib/respond.min.js")
+        <![endif]-->
+        script(src="#{js}lib/modernizr-2.8.3.min.js")
+        script(src="#{js}lib/jquery-1.10.2.min.js")
+        script(src="#{js}lib/bootstrap.min.js")
+        script(src="#{js}lib/bootstrap-select.js")
+        script(src="#{js}lib/velocity.min.js")
+        script(src="#{js}lib/velocity.ui.min.js")
+        script(src="#{js}lib/jquery.bxslider.js")
+        script(src="#{js}lib/jquery.iosslider.min.js")
+        script(src="#{js}lib/jquery.mCustomScrollbar.min.js")
+        script(src="#{js}lib/icheck.min.js")
+
+        title
+            Верстка
+
+    block vars
+
+    body(class='#{bodyClass}')
+        //[if lt IE 7]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]
+
+        .site-wrapper
+            block header
+                
+            .site-content
+                block content
+
+        block footer
+
+        .feedback-fix
+            a(href='#')
+                i.font-icon.nv-envelope
+            a(href='#')
+                i.font-icon.nv-bubble
+            a(href='#')
+                i.font-icon.nv-phone-bordered
+
+        .container.scroll-to-top-container
+            a(href="#")#scroll-to-top.scroll-to-top
+
+        block layers
+        block library
+        block init
+
+        script(src="#{js}main.js")
+

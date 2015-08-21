@@ -1,0 +1,335 @@
+// Статья
+
+//Базовый шаблон
+extends includes/layout
+ 
+//Подключение mixin
+append includes
+ 
+// Подключение библиотек скриптов
+append library
+    
+// Инициализация скриптов
+append init
+
+//----------------------------------------------------------------------------------------------------
+
+// Шапка
+append header
+    include includes/header
+
+    .page-content
+
+        .block.page-block
+            .container
+                .page-title.sm
+                    h1 О банке
+            .banner.single-banner(style="background:#004892")
+                .container 
+                    .row
+                        .article.inner-article.slide-contents
+                            h2: |Как открыть вклад по выгодной ставке 16% не выходя из дома?!
+                            p: |Для клиентов, которые откроют вклад "Весенний" через "Банк-он-Лайн" до 30 апреля 2015 г. дополнительный бонус - плюс 1% к ставке на первые 100 дней вклада по акции «Любимый клиент» .
+                            p: a(href="#").btn.btn-success.btn-lg Подать заявку
+                        .banner-image
+                            img(src="#{img}/uploads/girl.jpg")
+
+            .banner-disclaimer
+                .container
+                    .article.inner-article
+                        p: Подробнее со всеми условиями размещения денежных средств можно ознакомиться на сайте банка и по круглосуточному многоканальному телефону 8 -800-7000-213.
+        .block.odd-block
+            .container
+                article.article
+                    .row.side-grid
+                        .primary-col
+                            h3: |Банк сегодня
+                            p: |В настоящее время банк оказывает широкий спектр финансовых услуг как для юридических, так и для физических лиц, при этом ориентирован на новейшие технологии в сфере банковского дела. Инновационные сервисы и продукты для клиентов удачно сочетаются с демократичными тарифами, что обеспечивает популярность услуг банка и позволяет ему постоянно развиваться. Банк уверенно стоит на ногах, имеет отличные показатели надежности и ликвидности, с каждым годом демонстрируя прогресс с точки зрения прибыльности и эффективности своей деятельности.
+                            p
+                                a(href="#") Читать историю банка
+                        .secondary-col.inside-block
+                            .widget
+                                .spec-offer
+                                    img(src="http://placehold.it/195x355/fff")
+
+        .block.feedback-block
+            .container
+                .article
+                    h4
+                        i.font-icon.nv-envelope-plus
+                        |Подписка на новости
+                    .row
+                        .form-column
+                            .row
+                                .col-6
+                                    .form-group
+                                        label.required Е-mail
+                                        .form-controls
+                                            input(type="phone").form-control.input-lg
+                                .col-6
+                                    .form-group
+                                        label.required Как к вам обращаться
+                                        .form-controls
+                                            input(type="phone").form-control.input-lg
+                        .button-column
+                            .btn-submit-group.text-center
+                                label: |&nbsp;
+                                .form-controls
+                                    a(href="#").btn.btn-lg.btn-success Подписаться
+
+        .block.odd-block
+            .container
+                article.article
+                    .row
+                        .col.col-7
+                            .image-block
+                                img(src="#{img}/uploads/a01.png")
+                        .col.col-5
+                            h3 Интернет-банк
+                            p: |На сегодняшний день головной офис банка расположен в Екатеринбурге, а его офисы открыты в большинстве крупных промышленных центрах Свердловской области, а также в Магнитогорске и Челябинске.
+                            p
+                                a(href="#").btn.btn-primary.btn-next Подробнее
+                    .row
+                        .col.col-7
+                            h3: |Мобильный банк
+                            p: |На сегодняшний день головной офис банка расположен в Екатеринбурге, а его офисы открыты в большинстве крупных промышленных центрах Свердловской области, а также в Магнитогорске и Челябинске.
+                            .teaser-horizontal
+                                .image
+                                    img(src="#{img}svg/clock.svg" width="37" height="41")
+                                .inner-article
+                                    h4: |Быстрый
+                                    p: |Получение денежных средства в любое время в банкомате или в кассе любого банка по единым тарифам Банка.
+                            .teaser-horizontal
+                                .image
+                                    img(src="#{img}svg/infinity.svg" width="48" height="20")
+                                .inner-article
+                                    h4: |Адаптивный
+                                    p: |Получение денежных средства в любое время в банкомате или в кассе любого банка по единым тарифам Банка.
+                            p 
+                                a(href="#").btn.btn-success.btn-next Подробнее
+
+                        .col.col-5
+                            .image-block
+                                img(src="#{img}/uploads/a02.png")
+
+        .block
+            .container
+                article.article
+                    h2: |Статистика
+
+                    h3: |Откройте вклад «Весенний»
+
+                    p: |16% годовых в рублях или 4% годовых в валюте на первые 100 дней действия вклада предоставляются при открытии вклада в Банк-он-Лайн.
+                    
+                    ul 
+                        li: |модель Magner 175 F;
+                        li: |цена - 101 100 руб. за комплект с принтером и выносным дисплеем;
+                        li: |гарантия 18 мес.;
+                        li: |сервисное обслуживание 6 мес. бесплатно, по истечении 6 месяцев ТО 1800 руб. в месяц за один сортировщик; 
+                        li: |доставка по обозначенным адресам (ввод в эксплуатацию и обучение) силами и за счет поставщика.
+
+                    table.table
+                        thead
+                            tr
+                                th Начало
+                                th Окончание
+                        tbody
+                            tr
+                                td 
+                                    strong 26.11.2014 15:00
+                                td 
+                                    strong до 04.12.2014 18:00 Завершен
+
+                    ol
+                        li
+                            h3: |Предмет тендера
+                            ul
+                                li: |Cортировщик банкнот GLORY USF-51 в комплекте с односторонним дисплеем и принтером в количестве 20 штук, либо,
+                                li: |сортировщик банкнот Kisan Newton-F в комплекте с односторонним дисплеем и принтером в количестве 20 штук, либо,
+                                li: |сортировщик банкнот BPS C1 в комплекте с односторонним дисплеем и принтером в количестве 20 штук, либо,
+                                li: |сортировщик банкнот Magner-175F в комплекте с односторонним дисплеем и принтером в количестве 20 штук
+
+                        li
+                            h3: |Валюта тендера - рубли.
+                            p Банк оставляет за собой право выбора сортировщиков банкнот в зависимости от следующих критериев:
+                            ul
+                                li: |вид и стоимость техники;
+                                li: |гарантийный срок;
+                                li: |стоимость сервисного обслуживания.
+                         
+                        li
+                            h3: |Срок поставки
+                            p: | не позднее 30.12.2014.
+                    
+        .block.odd-block
+            .container
+                .article
+                    .row
+                        .col.col-4
+                            // Картинка, выступающая влево
+                            .image-block.picture-left
+                                img(src='#{img}/uploads/a03.png')
+                        .col.col-8
+                            h3 Для оформления корпоративной банковской карты необходимо:
+                            ol 
+                                li: | Заключить договор на выпуск корпоративной банковской карты. Карта может быть выпущена к специальному карточному счету (СКС) либо к расчетному счету Клиента. Для открытия СКС* необходимо предоставить в Банк необходимые документы.
+                                li: |Предоставить в Банк заявление на выпуск корпоративной банковской карты** на имя физического лица — уполномоченного сотрудника предприятия с образцом подписи Держателя***, копию документа, удостоверяющего личность Держателя.
+                                li: |Оплатить стоимость выпуска карты в соответствии с действующими тарифами.
+                            p
+                                a(href="#").btn.btn-success.btn-lg Подать заявку
+        .block
+            .container
+                .article
+                    h3.text-center Блок «Вертикальные тизеры»
+                    .teaser-vertical-block
+                        .teaser-vertical
+                            .image
+                                img(src="#{img}svg/clock.svg" width="37" height="41")
+                            .inner-article
+                                h4: |Быстрый
+                                p: | Этот блок нужно вставлять вместе с тегом div.teaser-vertical-block, сразу по два тизера
+                        .teaser-vertical
+                            .image
+                                img(src="#{img}svg/infinity.svg" width="37" height="41")
+                            .inner-article
+                                h4: |Быстрый
+                                p: | Этот блок нужно вставлять вместе с тегом div.teaser-vertical-block, сразу по два тизера
+                    .teaser-vertical-block
+                        .teaser-vertical
+                            .image
+                                img(src="#{img}svg/clock.svg" width="37" height="41")
+                            .inner-article
+                                h4: |Быстрый
+                                p: | Этот блок нужно вставлять вместе с тегом div.teaser-vertical-block, сразу по два тизера
+                        .teaser-vertical
+                            .image
+                                img(src="#{img}svg/infinity.svg" width="37" height="41")
+                            .inner-article
+                                h4: |Быстрый
+                                p: | Этот блок нужно вставлять вместе с тегом div.teaser-vertical-block, сразу по два тизера
+
+        .block.odd-block
+            .container
+                .article
+
+                    h3 Полезные ссылки
+                    .spoiler
+                        a.spoiler-header.collapsed(data-toggle="collapse" href="#sp1")
+                            .spoiler-icon
+                                .plus
+                            |Памятка организациям и индивидуальным предпринимателям, желающим принять участие в тендере
+                        .spoiler-body.panel-collapse.collapse(id="sp1")
+                            .inner haha
+                    .spoiler
+                        a.spoiler-header.collapsed(data-toggle="collapse" href="#sp2")
+                            .spoiler-icon
+                                .plus
+                            |Памятка организациям и индивидуальным предпринимателям, желающим принять участие в тендере
+                        .spoiler-body.panel-collapse.collapse(id="sp2")
+                            .inner haha
+                    .spoiler
+                        a.spoiler-header.collapsed(data-toggle="collapse" href="#sp3")
+                            .spoiler-icon
+                                .plus
+                            |Памятка организациям и индивидуальным предпринимателям, желающим принять участие в тендере
+                        .spoiler-body.panel-collapse.collapse(id="sp3")
+                            .inner haha
+
+                    p: |16% годовых в рублях или 4% годовых в валюте на первые 100 дней действия вклада предоставляются при открытии вклада в Банк-он-Лайн.
+
+                    p: |16% годовых в рублях или 4% годовых в валюте на первые 100 дней действия вклада предоставляются при открытии вклада в Банк-он-Лайн.
+
+                    hr
+
+                    p: |16% годовых в рублях или 4% годовых в валюте на первые 100 дней действия вклада предоставляются при открытии вклада в Банк-он-Лайн.
+
+                    p: |16% годовых в рублях или 4% годовых в валюте на первые 100 дней действия вклада предоставляются при открытии вклада в Банк-он-Лайн.
+
+        .block
+            .container
+                article.article
+                    h3.text-center Тизеры-картинки
+                    .teaser-imagical-block
+                        .teaser-imagical(style="background-image:url('http://placehold.it/480x275/241a19/fff')")
+                            .inner-article
+                                h3: |История банка 
+                                p: |В картинках
+                        .teaser-imagical(style="background-image:url('http://placehold.it/480x275/89a8d7/fff')")
+                            .inner-article
+                                h3: |Страхование имущества
+                                p: |Всего один шаг
+        .block.odd-block
+            .container
+                article.article
+                    .text-center 
+                        p: img(src="#{img}/uploads/a04.png")
+                        p.h4 Бесплатная консультация
+                        p 
+                            a(href="#").script-link Задайте вопрос
+                            |&nbsp;или позвоните по телефону: 
+                            strong 8 343 343 43 43
+
+
+        .block
+            .container
+                article.article
+                    .file-item.file-primary
+                        .file-type 
+                            span 
+                                |.docx
+                        a(href="#") Адреса и режим работы банкоматов банков-партнеров, принимающих наличные денежные средства по картам БАНКА "НЕЙВА" ООО
+                        .file-info
+                            span.size 340 kb
+                            span.control-sum &nbsp;|&nbsp;Контрольная сумма (sha-1): bdfb4546487fg4443ffg5544761474
+                    .file-item.file-success
+                        .file-type 
+                            span 
+                                |.pdf
+                        a(href="#") Адреса и режим работы банкоматов банков-партнеров, принимающих наличные денежные средства по картам БАНКА "НЕЙВА" ООО
+                        .file-info
+                            span.size 340 kb
+                            span.control-sum &nbsp;|&nbsp;Контрольная сумма (sha-1): bdfb4546487fg4443ffg5544761474
+                    .file-item.file-info
+                        .file-type 
+                            span 
+                                |.pdf
+                        a(href="#") Адреса и режим работы банкоматов банков-партнеров, принимающих наличные денежные средства по картам БАНКА "НЕЙВА" ООО
+                        .file-info
+                            span.size 340 kb
+                            span.control-sum &nbsp;|&nbsp;Контрольная сумма (sha-1): bdfb4546487fg4443ffg5544761474
+                    .file-item.file-warning
+                        .file-type 
+                            span 
+                                |.zip
+                        a(href="#") Адреса и режим работы банкоматов банков-партнеров, принимающих наличные денежные средства по картам БАНКА "НЕЙВА" ООО
+                        .file-info
+                            span.size 340 kb
+                            span.control-sum &nbsp;|&nbsp;Контрольная сумма (sha-1): bdfb4546487fg4443ffg5544761474
+                    .file-item.file-danger
+                        .file-type 
+                            span 
+                                |.pptx
+                        a(href="#") Адреса и режим работы банкоматов банков-партнеров, принимающих наличные денежные средства по картам БАНКА "НЕЙВА" ООО
+                        .file-info
+                            span.size 340 kb
+                            span.control-sum &nbsp;|&nbsp;Контрольная сумма (sha-1): bdfb4546487fg4443ffg5544761474
+
+                    p: a(href="#" target="_blank"): Внешняя ссылка
+
+                    hr 
+
+                    p
+                        a(href="#").btn.btn-success.btn-lg Отправить
+                        a(href="#").btn.btn-primary.btn-lg Назад
+                        a(href="#").btn.btn-success Отправить
+                        a(href="#").btn.btn-primary Получить
+                        a(href="#").btn.btn-primary.btn-prev Назад
+
+                                
+
+//Контент
+append content
+
+    
+append footer
+    include includes/footer

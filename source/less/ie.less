@@ -1,0 +1,389 @@
+﻿@import "custom-variables.less";
+
+.img(@image, @width, @height) {
+    display: inline-block;
+    background: url('@{img}@{image}') no-repeat;
+    background-size: @width*1px @height*1px;
+    width: @width*1px;
+    height: @height*1px;
+}
+
+.bgz(@image) {
+    filter: ~"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif', sizingMethod='scale')";
+    -ms-filter: ~"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif', sizingMethod='scale')";
+}
+
+.container { 
+    width: 980px;
+}
+
+.services-slider-scrollbar {
+    >div>div{
+        background: none!important;
+        background: #ef5359 url('@{img}service-scrollbar-bgr.png') no-repeat center right!important;
+
+        &:before {
+            display: none;
+        }
+
+        &:after {
+            top: 0;
+            left: 0;
+            margin: 0;
+            background-color: transparent;
+            .img('service-scrollbar-caret.png', 34px, 34px);
+        }
+    }
+}
+
+.services-mobile {
+    display: none!important;
+}
+
+.services-slider, .services-slider-scrollbar {
+    display: block;
+}
+
+.services-item {
+    width: @service-width;
+    height: @service-height;
+    margin: 0;
+    padding: 24px;
+    font-size: 28px;
+    float: left;
+    padding: 24px;
+    margin-bottom: 10px;
+    overflow: hidden;
+
+    &,
+    &:hover,
+    &:focus {
+        background: #004794 url('@{img}service-teaser-bg.png') bottom right no-repeat;
+    }
+}
+
+.services-layer-slider {
+    &,
+    .bx-wrapper,
+    .bx-viewport,
+    .slider,
+    .slider>li {
+        height: 670px!important;
+    }
+}
+
+.service-layer-close {
+    top: -60px;
+    right: 50px;
+}
+
+.news-buttons {
+    position: relative;
+}
+
+.btn-wrap {
+    display: inline-block;
+    position: relative;
+}
+
+.btn {
+    z-index: 2;
+    position: relative;
+}
+
+.btn-next {
+    &:before {
+        content: "";
+        display: none!important;
+    }
+
+    &:after {
+        content: "";
+        background: transparent url('@{img}btn-next-bg.png') no-repeat 0 0!important;
+        border: 0!important;
+    }
+}
+
+.dropdown-primary .dropdown-menu {
+    border: 1px solid #eee;
+    border-top: 0;
+}
+
+.header-bottom {
+    border: 0;
+}
+
+.main-submenu,
+.ibank-dropdown {
+    border: 1px solid #eee;
+}
+
+.search-submit  {
+    z-index: 3;
+}
+
+.control-decorated {
+    position: relative;
+    z-index: 2;
+}
+
+.services-item:before {
+    display: none !important;
+}
+
+.block.page-block {
+    padding-top: 16px;
+}
+
+.search-control input.form-control {
+    width: 100%;
+}
+
+.filter-col { 
+    white-space: nowrap;
+}
+
+.tooltip,
+.tooltip.in {
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+    filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+}
+
+.dropdown-primary .dropdown-menu>ul>li {
+    >a {
+        &:hover,
+        &:focus {
+            background: none;
+        }
+    }
+}
+
+.currency-graph-block {
+    overflow: visible !important;
+}
+
+.single-banner .article {
+    float: none;
+    width: 980px!important;
+}
+
+.services-search-list li>a {
+    white-space: normal;
+    max-width: 100%;
+}
+
+.single-banner.article-banner {
+    .row {
+        height: auto;
+    }
+    .article {
+        padding-top: 0;
+    }
+    .banner-image {
+        position: relative;
+        bottom: auto;
+        right: auto;
+    }
+}
+
+.credit-banner.main-slider, 
+.credit-banner.main-slider .slide-contents {
+    min-height: 0!important;
+}
+
+.btn-group-tabs {
+    width: 100%;
+    text-align: center;
+    display: block;
+
+    >.btn {
+        float: none!important;
+        display: inline-block;
+    }
+}
+
+.feedback-fix.compare-counter {
+    margin-top: 100px;
+    border: 0;
+    outline: 0!important;
+    opacity: 0;
+    
+    &:before {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.page-footer .badge {
+    color: #fff!important;
+    display: inline-block;
+}
+
+a.app-link {
+    height: 58px;
+    line-height: 58px;
+
+    >i {
+        vertical-align: top;
+    }
+}
+
+.social-buttons {
+    margin-left: -4px;
+
+    .btn {
+        margin-left: 4px;
+    }
+}
+
+.article ol>li:before {
+    border: 0;
+    height: 54px;
+    padding: 1px 2px 2px 0;
+    background: transparent url('@{img}ol-round.png') no-repeat 0 0;
+}
+
+.agreement-text ol>li:before {
+    background-image: url('@{img}ol-round-gray.png');
+}
+
+// в ие8 position: relative не работает для display:inline
+.article a[target="_blank"] {
+    display: inline-block;
+} 
+
+.ui-slider .ui-slider-handle {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+        border: 0;
+        outline: none;
+        .img('calc-handle.png', 20px, 20px);
+    }
+
+    &:before {
+        display: none;
+    }
+}
+
+.bootstrap-select .btn,
+.bootstrap-select .btn:hover,
+.bootstrap-select .btn:focus,
+.bootstrap-select .btn:active {
+    background: #fff;
+}
+
+.bootstrap-select.form-control {
+    width: 100%;
+}
+
+.bootstrap-select.input-lg.btn-group .dropdown-toggle .caret,
+.bootstrap-select.input-lg .dropdown-toggle:before {
+    right: 16px!important;
+}
+
+.custom-radio {
+    border: 0;
+    background: transparent url('@{img}radio.png') no-repeat 0 0;
+
+    &.checked {
+        background-position: -16px 0;
+
+        &:before {
+            display: none!important;
+        }
+    }
+}
+
+.control-label + css3-container + .tip {
+    margin-top: -3px;
+}
+
+a.insurance-link {
+    display: block!important;
+
+    &:hover,
+    &:focus {
+        display: block!important;
+        border-bottom: 0 !important;
+    }
+}
+
+// заставляем перерисовать псевдоэлемент при изменении состояния
+.header-top .nav>li.ibank-link.active:before,
+.header-city-selector.open .dropdown-menu:before,
+.main-nav>li.active>a:before,
+.main-nav>li.active>a:after,
+.color-captcha-item:before,
+.color-captcha-item:after,
+.custom-checkbox:before,
+{
+    content: "  ";
+}
+
+.order-info .inner,
+.no-cssfilters .order-info .inner {
+    -pie-box-shadow: 0 -2px 24px #ddd;
+}
+
+// ** pie
+.ui-slider .ui-slider-handle {
+    -pie-box-shadow: none;
+}
+
+.pie {
+    behavior: url("/bundles/artsoftemain/less/PIE.htc");
+}
+
+.badge,
+.btn,
+.bx-wrapper .bx-pager.bx-default-pager a,
+.scroll-to-top,
+i.font-icon.nv-close,
+.control-decorated,
+.file-item .file-type>span,
+.dropdown-primary .dropdown-menu>ul>li>a,
+.icon-work24-7,
+.icon-work24-7>.icon,
+.nav-shortcuts>li>a,
+.nav-shortcuts>li,
+.cbrf-rates,
+.services-search-list li>a,
+.order-info .inner,
+.no-cssfilters .order-info .inner,
+.tip,
+.page-footer .search-control,
+.steps-list>ul>li>span,
+.steps-list>ul>li>a
+{
+    .pie;
+    -pie-poll:true;
+}
+
+.selectable-item .btn-submit,
+.services-search-list li>a,
+.icon-work24-7>.icon,
+.tip,
+.badge {
+    position: relative;
+    z-index: 2;
+}
+
+.selectable-item .btn-submit {
+    -pie-poll:false;
+}
+
+.bootstrap-select>.btn,
+.btn-group-tabs>.btn {  
+    behavior: none;
+}
+
+a {
+    &:hover,
+    &:focus {
+        background: inherit;
+    }
+}
+

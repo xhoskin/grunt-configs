@@ -1,0 +1,19 @@
+﻿@import "custom-variables.less";
+
+.img(@image, @width, @height) {
+    display: inline-block;
+    background: url('@{img}@{image}') no-repeat;
+    background-size: @width*1px @height*1px;
+    width: @width*1px;
+    height: @height*1px;
+}
+
+.bgz(@image) {
+    filter: ~"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif', sizingMethod='scale')";
+    -ms-filter: ~"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif', sizingMethod='scale')";
+}
+
+// в ие8-9 position: relative не работает для display:inline
+.article a[target="_blank"] {
+    display: inline-block;
+} 

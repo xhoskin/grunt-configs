@@ -1,0 +1,17 @@
+.retina-sprite() {
+    @media @highdpi {
+        background-size: @spritesheet-width @spritesheet-height;
+        background-image: url("@{img}sprite_2x.png");
+    }
+}
+
+.make-icon(@name) {
+    background-image: url('@{img}sprite.png');
+    background-position: ~"@{@{name}-offset-x} @{@{name}-offset-y}";
+    background-repeat: no-repeat;
+    width: ~"@{@{name}-width}";
+    height: ~"@{@{name}-height}";
+    display: inline-block;
+
+    .retina-sprite();
+}

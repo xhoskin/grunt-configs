@@ -1,0 +1,95 @@
+@import "bootstrap/normalize.less";
+@import "bootstrap/mixins.less";
+@import "bootstrap/scaffolding.less";
+@import "bootstrap/tables.less";
+
+@import "custom-variables.less";
+@import "custom-other.less";
+@import "fonts.less";
+@import "font-icons.less";
+
+@import "article.less";
+
+body { 
+    padding: 6px;
+    background: #fff;
+    max-width: 960px;
+}
+
+.cke_editable {
+    .article();
+
+    p {
+        margin-top: 0;
+    }
+
+    .col { 
+        outline: 1px dotted #ddd; 
+    }
+
+    .image-block.picture-left {
+        .cke_widget_inline {
+            float: right;
+        }
+    }
+}
+
+.cke_editable table {
+    .table;
+
+    >thead,
+    >tbody,
+    >tfoot {
+        >tr {
+            >td, th {
+                padding-left: 8px;
+                padding-right: 8px;
+
+                @media ( min-width: @grid-float-breakpoint ) {
+                    padding-left: 16px;
+                    padding-right: 16px;
+                }
+            }
+        }
+    }
+
+}
+
+.cke_editable table {
+    >thead,
+    >tbody {
+        >tr{
+            border: 1px solid #e7e7e7;
+
+            >td, >th {
+                border: 1px solid #e7e7e7;
+            }
+        }
+    }
+
+    tr>td {
+        h1, h2, h3 {
+            &:only-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    >thead:first-child>tr:first-child>th,
+    >thead>tr>th {
+        border-top: 2px solid @brand-success;
+        border-bottom: 2px solid @brand-success;
+        background: #efefef;
+    }
+
+    p { 
+        margin-bottom: 0;
+
+        & + p {
+            margin-top: 10px;
+        }
+
+    }
+
+}
+

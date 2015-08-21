@@ -1,0 +1,142 @@
+@import "bootstrap/mixins.less";
+@import "bootstrap/utilities.less";
+@import "bootstrap/type.less";
+@import "bootstrap/tables.less";
+@import "bootstrap/modals.less";
+@import "bootstrap/responsive-utilities.less";
+
+@import "custom-variables.less";
+@import "custom-other.less";
+
+@import "less-triangle.less";
+
+//@import "retina.less";
+//@import "_sprites_2x.less";
+//@import "_sprites.less";
+@import "fonts.less";
+@import "font-icons.less";
+
+@import "ruble.less";
+
+//
+// == Общие элементы
+// ------------------------------------------------------------
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+//
+// == Сетка
+// ------------------------------------------------------------
+
+.container,
+.container-fluid {
+    padding-left: @container-pad-sm;
+    padding-right: @container-pad-sm;
+
+    @media ( min-width: @grid-float-breakpoint ) {
+        padding-left: @container-pad;
+        padding-right: @container-pad;
+    }
+
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+
+        @media ( min-width: @grid-float-breakpoint ) {
+            padding-left: @container-pad;
+            padding-right: @container-pad;
+        }
+    }
+}
+
+
+//
+// == Формы 
+// ------------------------------------------------------------
+
+// ** Поля ввода
+
+// ** Кнопки
+
+// ** Чекбоксы и радио
+
+// ** Сетка для форм 
+
+// ** Всплывающая подсказка
+.tip {
+}
+
+// ** custom select 
+
+.bootstrap-select {
+}
+
+// ** select2
+.select2-container {
+}
+
+// ** Datepicker 
+.ui-datepicker {
+}
+
+// ** ui slider
+
+// ** ui spinner
+
+// ** ui autocomplete
+
+// ** toggle switch
+
+.bootstrap-switch {
+}
+
+// ** file input
+
+.file-input-wrapper {
+}
+
+//
+// == Article
+// ------------------------------------------------------------
+
+@import "article.less";
+
+//
+// == Header
+// ------------------------------------------------------------
+
+//
+// == Main menu 
+// ------------------------------------------------------------
+
+//
+// == Footer
+// ------------------------------------------------------------
+
+//
+// == Homepage
+// ------------------------------------------------------------
+
+//
+// == Новости
+// ------------------------------------------------------------
+
+//
+// == Модальные окна
+// ------------------------------------------------------------
+
+//
+// == Технические страницы
+// ------------------------------------------------------------
+
+.tech-page {
+}
+
+//
+// == экран с курсами валют
+// ------------------------------------------------------------
+
+// ** Кнопка "Прокрутить наверх"
